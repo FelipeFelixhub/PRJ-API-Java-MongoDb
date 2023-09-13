@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import br.com.apimongo.domain.Post;
 import br.com.apimongo.domain.User;
+import br.com.apimongo.dto.AuthorDTO;
 import br.com.apimongo.repositoy.PostRepository;
 import br.com.apimongo.repositoy.UserRepository;
 
@@ -35,11 +36,12 @@ public class Instatiation implements CommandLineRunner {
 		User carol = new User(null, "Caroline Felix", "carol@gmail.com");
 		User henrique = new User(null, "Henrique Felix", "henrique@gmail.com");
 		
-		Post post1 = new Post(null, sdf.parse("13/09/2023"), "Partiu viagem", "Vou viajar para Londres. Abraços!", felipe);
-		Post post2 = new Post(null, sdf.parse("12/09/2023"), "Felicidade", "Coisas boas aconteceram", carol);
-		Post post3 = new Post(null, sdf.parse("10/09/2023"), "Vaiii Corinthians", "Bi Campeão Mundial", henrique);
-		
 		userRepository.saveAll(Arrays.asList(felipe,carol,henrique));
+		
+		Post post1 = new Post(null, sdf.parse("13/09/2023"), "Partiu viagem", "Vou viajar para Londres. Abraços!", new AuthorDTO(felipe));
+		Post post2 = new Post(null, sdf.parse("12/09/2023"), "Felicidade", "Coisas boas aconteceram", new AuthorDTO(carol));
+		Post post3 = new Post(null, sdf.parse("10/09/2023"), "Vaiii Corinthians", "Bi Campeão Mundial", new AuthorDTO(henrique));
+		
 		
 		postRepository.saveAll(Arrays.asList(post1,post2, post3));
 	}
