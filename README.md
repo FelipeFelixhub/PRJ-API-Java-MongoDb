@@ -9,4 +9,4 @@ Projeto de API Restful utilizando Spring Boot e MongoBd
 
 
 ## Entidades
-<img src= "entities.png" width="600px">
+<img src= "entities.png" width="500px">
