@@ -1,6 +1,7 @@
 package br.com.apimongo.config;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.TimeZone;
 
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import br.com.apimongo.domain.Post;
 import br.com.apimongo.domain.User;
 import br.com.apimongo.dto.AuthorDTO;
+import br.com.apimongo.dto.CommentDTO;
 import br.com.apimongo.repositoy.PostRepository;
 import br.com.apimongo.repositoy.UserRepository;
 
@@ -43,6 +45,14 @@ public class Instatiation implements CommandLineRunner {
 		Post post3 = new Post(null, sdf.parse("10/09/2023"), "Vaiii Corinthians", "Bi Campeão Mundial", new AuthorDTO(henrique));
 		Post post4 = new Post(null, sdf.parse("12/09/2023"), "Vaiii Corinthians", "Vamos, Vamos Corinthians, esse jogo, teremos que ganhar!", new AuthorDTO(henrique));
 		
+		
+		CommentDTO c1 = new CommentDTO("Boa Viagem!!", sdf.parse("13/09/2023"), new AuthorDTO(henrique));
+		CommentDTO c2 = new CommentDTO("Vaiiii Corinthians!!", sdf.parse("12/09/2023"), new AuthorDTO(felipe));
+		CommentDTO c3 = new CommentDTO("Que Coisa Boa !!", sdf.parse("12/09/2023"), new AuthorDTO(felipe));
+		
+		post1.getComments().addAll(Arrays.asList(c1));
+		post2.getComments().addAll(Arrays.asList(c3));
+		post3.getComments().addAll(Arrays.asList(c2));
 		
 		postRepository.saveAll(Arrays.asList(post1,post2, post3, post4));
 		
