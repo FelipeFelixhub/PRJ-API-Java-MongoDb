@@ -64,6 +64,7 @@ public class UserResource {
 		return ResponseEntity.noContent().build();
 	}
 		
+	//Nao Rolou por enquanto
 	//@RequestMapping(value = "/{id}/posts", method = RequestMethod.GET)
 	@GetMapping(value = "/{id}/posts")
  	public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
